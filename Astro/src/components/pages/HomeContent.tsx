@@ -2,34 +2,33 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, ExternalLink, Code2, Rocket, Zap, BarChart3 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import Image from "next/image";
+import { Button } from "../ui/button";
+import { Card, CardContent } from "../ui/card";
 
 const projects = [
   {
     title: "Quantum Nexus",
     description: "A decentralized cloud computing platform for AI workloads.",
     tech: ["Next.js", "TypeScript", "Tailwind"],
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&h=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=600&h=400&auto=format&fit=crop",
   },
   {
     title: "EcoSphere API",
     description: "Real-time environmental data monitoring with predictive analytics.",
     tech: ["React", "D3.js", "Node.js"],
-    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&h=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=600&h=400&auto=format&fit=crop",
   },
   {
     title: "Aura Design System",
     description: "A high-performance design system for enterprise applications.",
     tech: ["React", "Storybook", "CSS"],
-    image: "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1200&h=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=600&h=400&auto=format&fit=crop",
   },
   {
     title: "Lumina Vault",
     description: "Secure, encrypted asset management for digital creators.",
     tech: ["Next.js", "Prisma", "Postgres"],
-    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1200&h=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=600&h=400&auto=format&fit=crop",
   },
 ];
 
@@ -146,13 +145,11 @@ export default function Home() {
               transition={{ delay: i * 0.1 }}
             >
               <Card className="group overflow-hidden border-white/5 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10">
-                <div className="aspect-video overflow-hidden relative">
-                  <Image
+                <div className="aspect-video overflow-hidden">
+                  <img
                     src={project.image}
                     alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                 </div>
                 <CardContent className="p-8 space-y-4">

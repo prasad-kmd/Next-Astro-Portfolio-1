@@ -1,0 +1,154 @@
+---
+import { motion } from "framer-motion";
+import { ArrowRight, ExternalLink, Code2, Rocket, Zap, BarChart3 } from "lucide-react";
+import { Button } from "../ui/button";
+import { Card, CardContent } from "../ui/card";
+import { Image } from "astro:assets";
+
+const projects = [
+  {
+    title: "Quantum Nexus",
+    description: "A decentralized cloud computing platform for AI workloads.",
+    tech: ["Next.js", "TypeScript", "Tailwind"],
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&h=800&auto=format&fit=crop",
+  },
+  {
+    title: "EcoSphere API",
+    description: "Real-time environmental data monitoring with predictive analytics.",
+    tech: ["React", "D3.js", "Node.js"],
+    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&h=800&auto=format&fit=crop",
+  },
+  {
+    title: "Aura Design System",
+    description: "A high-performance design system for enterprise applications.",
+    tech: ["React", "Storybook", "CSS"],
+    image: "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1200&h=800&auto=format&fit=crop",
+  },
+  {
+    title: "Lumina Vault",
+    description: "Secure, encrypted asset management for digital creators.",
+    tech: ["Next.js", "Prisma", "Postgres"],
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1200&h=800&auto=format&fit=crop",
+  },
+];
+
+const stats = [
+  { label: "Projects Completed", value: 124 },
+  { label: "Happy Clients", value: 89 },
+  { label: "Lines of Code", value: "250K+" },
+  { label: "Cups of Coffee", value: 1400 },
+];
+
+const skills = ["Next.js", "React", "TypeScript", "Tailwind CSS", "Astro", "Framer Motion", "Radix UI", "Node.js", "GraphQL", "PostgreSQL"];
+---
+
+<div class="flex flex-col gap-24 pb-24">
+  {/* Hero Section */}
+  <section class="relative min-h-[90vh] flex flex-col items-center justify-center px-6 overflow-hidden">
+    <div class="absolute inset-0 -z-10 overflow-hidden">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[128px]"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-[128px]"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-5 pointer-events-none"
+           style="background-image: radial-gradient(circle at 2px 2px, gray 1px, transparent 0); background-size: 40px 40px"></div>
+    </div>
+
+    <div class="max-w-4xl text-center space-y-8">
+      <div>
+        <h1 class="text-6xl md:text-8xl font-black tracking-tighter leading-tight bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/50">
+          CRAFTING <br />
+          <span class="text-primary italic">DIGITAL</span> NEXUS
+        </h1>
+      </div>
+
+      <p class="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
+        Independent Software Engineer specializing in building sophisticated,
+        high-performance web experiences with meticulous attention to detail.
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-4">
+        <Button size="lg" className="rounded-full gap-2 group px-8">
+          View Projects
+          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+        </Button>
+        <Button size="lg" variant="outline" className="rounded-full px-8">
+          Contact Me
+        </Button>
+      </div>
+
+      <div class="pt-12 flex flex-wrap justify-center gap-2 max-w-2xl mx-auto">
+        {skills.map((skill) => (
+          <span
+            class="px-4 py-1.5 rounded-full border border-white/5 bg-white/5 text-xs font-medium backdrop-blur-sm hover:border-primary/50 hover:bg-primary/5 transition-all duration-300"
+          >
+            {skill}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Marquee/Scrolling Container */}
+  <div class="w-full overflow-hidden py-12 border-y border-white/5 bg-white/[0.02]">
+    <div class="flex gap-12 whitespace-nowrap animate-marquee">
+      {[...Array(2)].map((_, i) => (
+        <div class="flex gap-12 items-center">
+          <span class="flex items-center gap-2 text-2xl font-bold text-muted-foreground/30 uppercase tracking-widest"><Code2 /> INNOVATION</span>
+          <span class="flex items-center gap-2 text-2xl font-bold text-muted-foreground/30 uppercase tracking-widest"><Zap /> PERFORMANCE</span>
+          <span class="flex items-center gap-2 text-2xl font-bold text-muted-foreground/30 uppercase tracking-widest"><Rocket /> SCALE</span>
+          <span class="flex items-center gap-2 text-2xl font-bold text-muted-foreground/30 uppercase tracking-widest"><BarChart3 /> ANALYTICS</span>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  {/* Projects Grid */}
+  <section class="px-6 max-w-7xl mx-auto w-full">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+      <div class="space-y-2">
+        <h2 class="text-4xl font-bold tracking-tight">FEATURED WORK</h2>
+        <p class="text-muted-foreground">A selection of recent projects and contributions.</p>
+      </div>
+      <Button variant="link" className="gap-2">
+        All Projects <ExternalLink className="w-4 h-4" />
+      </Button>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {projects.map((project, i) => (
+        <Card className="group overflow-hidden border-white/5 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10">
+          <div class="aspect-video overflow-hidden relative">
+            <img
+              src={project.image}
+              alt={project.title}
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              loading="lazy"
+            />
+          </div>
+          <CardContent className="p-8 space-y-4">
+            <div class="flex gap-2">
+              {project.tech.map((t) => (
+                <span class="text-[10px] uppercase tracking-widest font-bold text-primary">{t}</span>
+              ))}
+            </div>
+            <h3 class="text-2xl font-bold">{project.title}</h3>
+            <p class="text-muted-foreground">{project.description}</p>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
+  </section>
+
+  {/* Stats Row */}
+  <section class="px-6 max-w-7xl mx-auto w-full">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      {stats.map((stat, i) => (
+        <div
+          class="text-center space-y-2 p-8 rounded-2xl bg-white/[0.02] border border-white/5"
+        >
+          <div class="text-4xl font-black text-primary">{stat.value}</div>
+          <div class="text-xs uppercase tracking-widest text-muted-foreground">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+</div>

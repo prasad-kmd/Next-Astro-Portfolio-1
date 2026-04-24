@@ -1,0 +1,34 @@
+---
+import "../styles/globals.css";
+import { ThemeProvider } from "../components/theme-provider";
+import { RootLayoutWrapper } from "../components/layout/root-layout-wrapper";
+import { TooltipProvider } from "../components/ui/tooltip";
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "A visually sophisticated portfolio built with Astro" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="min-h-screen bg-background font-sans antialiased">
+		<ThemeProvider client:load attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+			<TooltipProvider client:load>
+				<RootLayoutWrapper client:load>
+					<slot />
+				</RootLayoutWrapper>
+			</TooltipProvider>
+		</ThemeProvider>
+	</body>
+</html>
