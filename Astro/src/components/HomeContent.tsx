@@ -1,9 +1,8 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
+import { Image } from "astro:assets";
 import {
   ArrowRight,
   Sparkles,
@@ -37,7 +36,7 @@ const featuredProjects = [
 
 const techLogos = ["React", "Next.js", "Astro", "Tailwind", "Radix", "Framer", "TypeScript", "Node.js"];
 
-export default function Home() {
+export default function HomeContent() {
   return (
     <div className="w-full">
       {/* Hero Section */}
@@ -84,19 +83,19 @@ export default function Home() {
             transition={{ delay: 0.2 }}
             className="flex flex-wrap items-center justify-center gap-4 pt-4"
           >
-            <Link
+            <a
               href="/contact"
               className="px-8 py-4 rounded-full bg-white text-black font-bold flex items-center gap-2 hover:bg-accent-cyan transition-all hover:scale-105 active:scale-95"
             >
               Start Project
               <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link
+            </a>
+            <a
               href="/about"
               className="px-8 py-4 rounded-full glass hover:bg-white/10 font-bold transition-all"
             >
               My Story
-            </Link>
+            </a>
           </motion.div>
         </div>
       </section>
@@ -108,9 +107,9 @@ export default function Home() {
             <h2 className="text-4xl font-bold tracking-tight">Featured Work</h2>
             <div className="w-20 h-1 bg-accent-cyan rounded-full" />
           </div>
-          <Link href="/about-site" className="text-sm font-medium text-zinc-400 hover:text-white flex items-center gap-2 group">
+          <a href="/about-site" className="text-sm font-medium text-zinc-400 hover:text-white flex items-center gap-2 group">
             View Details <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
+          </a>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -120,10 +119,9 @@ export default function Home() {
               whileHover={{ y: -10 }}
               className="group relative rounded-3xl overflow-hidden glass aspect-4/5"
             >
-              <Image
+              <img
                 src={project.image}
                 alt={project.title}
-                fill
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent" />

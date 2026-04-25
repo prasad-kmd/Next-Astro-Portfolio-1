@@ -1,0 +1,41 @@
+---
+import "../styles/globals.css";
+import { Navbar } from "../components/Navbar";
+import { Sidebar } from "../components/Sidebar";
+import { Footer } from "../components/Footer";
+import { CustomContextMenu } from "../components/CustomContextMenu";
+import { ClientRouter } from 'astro:transitions';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Premium Portfolio | Astro" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+    <ClientRouter />
+	</head>
+	<body class="min-h-screen bg-background text-foreground flex overflow-x-hidden">
+		<CustomContextMenu client:load>
+      <div class="flex w-full">
+        <Sidebar client:load />
+        <div class="flex flex-col flex-1 min-h-screen ml-16 transition-all duration-300">
+          <Navbar client:load />
+          <main class="flex-1 flex flex-col">
+            <slot />
+          </main>
+          <Footer />
+        </div>
+      </div>
+    </CustomContextMenu>
+	</body>
+</html>
